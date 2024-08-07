@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+            width: 100%;
+            height: 100%;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            margin-left: auto;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: yellow;
+            text-decoration: none;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background: linear-gradient(to bottom, purple, pink);
+            position: relative;
+            color: white;
+            padding: 0 10px;
+            width: 100%;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 600px;
+            position: relative;
+            animation: slide-in 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            top: 50px;
+            background-color: black;
+            margin-top: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: relative;
+            top: -80px;
+            animation: slide-in 1s ease-out;
+        }
+
+        @keyframes slide-in {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 100%;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            width: 100%;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #about {
+            background: linear-gradient(to bottom, rgb(255, 192, 203), lightyellow);
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding: 20px;
+            color: black;
+        }
+
+        #about .text {
+            flex: 1;
+            padding-right: 20px;
+            animation: linear-text 7s linear infinite;
+            font-size: 1.2rem;
+        }
+
+        @keyframes linear-text {
+            0% {opacity: 0.2;}
+            100% {opacity: 1;}
+        }
+
+        #skills {
+            background: linear-gradient(to bottom, lightyellow, skyblue);
+        }
+
+        #skills table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #skills td {
+            padding: 10px;
+        }
+
+        #skills input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to right, red, purple);
+            border-radius: 5px;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .15s ease-in-out;
+        }
+
+        #skills input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: linear-gradient(to right,blue, grey);
+            border-radius: 5px;
+        }
+
+        #skills input[type="range"]::-webkit-slider-thumb {
+            border: 1px solid #000000;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: blue;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #skills input[type="range"]:focus::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, red, purple);
+        }
+
+        #projects {
+            background: linear-gradient(to bottom, skyblue, blue);
+        }
+
+        .project-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.7s, background 0.5s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(to right, #ff69b4, #ffd700);
+        }
+
+        #contact {
+            background: linear-gradient(to bottom, blue, black);
+            color: white;
+        }
+
+        #contact-form input, #contact-form textarea {
+            background-color: #333;
+            color: white;
+        }
+
+        #contact-form button {
+            background-color: red;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #007bff;
+        }
+
+        footer .watermark {
+            color: grey;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange }
+        }
+
+        .footer-icons img {
+            margin-right: 5px;
+            background-color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content {
+                max-width: 200%;
+                padding: 0 10px;
+            }
+
+            #about {
+                flex-direction: column;
+            }
+
+            #about .text {
+                padding-right: 0;
+            }
+
+            #skills table {
+                font-size: 0.9rem;
+            }
+
+            .project-card {
+                padding: 20px;
+                margin: 10px 0;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Additional styles for the medium hand icon */
+        .icon-container .bi-hand-thumbs-up {
+            font-size: 3rem; /* Adjust size as needed */
+            animation: wave-animation 2s infinite;
+        }
+
+        @keyframes wave-animation {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portfolio</h1>
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <img src="sakshi.jpg" alt="Profile Image">
+            <h1>Sakshi Jha</h1>
+            <a href="#about" class="btn">Learn More About Me</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="text">
+            <h2>About Me</h2>
+            <p>Hello! I'm Sakshi Jha, a passionate web developer with experience in HTML, CSS, JavaScript, and Python. I love creating beautiful and functional websites and continuously strive to improve my skills and knowledge.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <table>
+            <tr>
+                <td>HTML</td>
+                <td><input type="range" min="0" max="100" value="90" disabled></td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td><input type="range" min="0" max="100" value="80" disabled></td>
+            </tr>
+            <tr>
+                <td>JavaScript</td>
+                <td><input type="range" min="0" max="100" value="75" disabled></td>
+            </tr>
+            <tr>
+                <td>Python</td>
+                <td><input type="range" min="0" max="100" value="70" disabled></td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-card">
+            <h3>Project Title</h3>
+            <p>Project description goes here.</p>
+        </div>
+        <div class="project-card">
+            <h3>Project Title</h3>
+            <p>Project description goes here.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <div>
+            <a href="https://www.linkedin.com/in/sakshijha2003/" target="_blank">
+                <i class="bi bi-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/CygnusAzuri" target="_blank">
+                <i class="bi bi-github"></i> GitHub
+            </a>
+        </div>
+        <div class="watermark">Created by Sakshi Jha</div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const options = {
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
