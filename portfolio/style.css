@@ -1,0 +1,502 @@
+/* Styles defined for the desktop or the bigger screen devices*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(90deg, #11012d, #091353);
+    color: white;
+}
+
+/* Header Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-image: linear-gradient(90deg, #11012d, #091353);
+    z-index: 1000; /* Ensure the navbar is above other content */
+}
+
+/* Add margin to the main content to prevent overlap */
+.main-content {
+    margin-top: 10px; /* Adjust this value based on the height of your navbar */
+}
+
+.logo {
+    padding: 0 2rem;
+}
+
+.logo .logo-heading {
+    color: #fff;
+}
+
+.menu {
+    padding: 0 0rem;
+}
+
+.hamburger {
+    display: none;
+    color: #fff;
+    font-size: 25px;
+}
+
+.cross-icon {
+    display: none;
+}
+
+.menu .menu-list {
+    display: flex;
+    list-style: none;
+}
+
+.menu-list .menu-list-items {
+    padding: 0.5rem 1rem;
+}
+
+@media screen and (max-width: 855px) { /* Apply styles for smaller screens */
+    .hamburger {
+        display: block;
+    }
+    .cross-icon {
+        display: none; /* Adjust this if needed */
+    }
+
+    .menu-list {
+        display: none; /* Hide menu items by default */
+        flex-direction: column; /* Stack menu items vertically */
+    }
+
+    .menu-list.show { /* Show menu items when hamburger is clicked */
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 856px) and (max-width: 1024px) {
+    .menu-list .menu-list-items {
+        padding: 0.5rem 0.3rem;
+    }
+}
+
+/* Main Hero Section Styles */
+.hero {
+    padding-top: 0%;
+    position: relative;
+    display: flex;
+    justify-content: space-between; /* Aligns intro and image on opposite sides */
+    align-items: center;
+    width: 100%; /* Full width of the section */
+    height: 80vh; /* Adjust height as needed */
+    margin: 4.8rem 0;
+    overflow: hidden; /* Ensures the pseudo-element doesn't overflow */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place it behind the content */
+}
+
+.hero .intro {
+    flex: 1; /* Takes up remaining space on the left */
+    margin-left: 5rem; /* Adjust left margin as needed */
+    text-align: left;
+}
+
+.hero .intro-buttons {
+    margin: 2rem 0;
+    display: inline-block;
+    align-items: flex-end;
+}
+
+.clipart {
+    flex: 1; /* Takes up space on the right */
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the available space while keeping its aspect ratio */
+    margin-right: 6rem; /* Adjust right margin as needed */
+    transform: scaleX(-1); 
+}
+
+/* About section styles */
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 4rem 0;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+    
+}
+
+.about .about-text {
+    flex: 1;
+    color: #fff;
+    padding: 0 0 5rem 5rem;
+    text-align: justify;
+}
+
+.about h1 {
+    color: #fff;
+    padding: 0 0 0 5rem;
+    text-align: center;
+}
+
+.about .about-image img {
+    height: 300px;
+    width: 300px;
+    padding: 2rem 7rem 5rem 1rem;
+    border-radius: 50%;
+}
+
+
+/* projects section styles */
+.projects {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 8rem 0;
+    padding: 0 8rem;
+    color: white;
+}
+
+.my-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+.my-row .my-col {
+    text-align: justify;
+    width: 40%;
+}
+
+.my-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background:#d87a0b;
+    padding: 2rem;
+}
+
+.icon {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: #08002e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon svg {
+    font-size: 32px;
+    color: #efefef;
+}
+
+/*skill section styles*/
+.charts-container {
+    display: flex; /* Enables flexbox layout */
+    justify-content: space-between; /* Adjusts spacing between charts */
+    align-items: center; /* Centers charts vertically */
+    flex-wrap: wrap; /* Allows charts to wrap if necessary (optional) */
+    gap: 20px; /* Adjust the gap between charts as needed */
+  }
+  
+  .chart {
+    flex: 1; /* Makes each chart take up equal space */
+    min-width: 300px; /* Sets a minimum width for each chart */
+    /* Add additional styling as needed, like border, background, etc. */
+  }
+  
+  /* Optional: Media query to adjust layout on smaller screens */
+  @media (max-width: 768px) {
+    .charts-container {
+      flex-direction: column; /* Stacks charts vertically on smaller screens */
+    }
+  }
+  
+/* Contact section styles */
+
+.contact-section {
+    padding: 4rem 2rem;
+    background-color: transparent; /* Dark background for contrast */
+    color: #fff;
+    display: flex;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #81181822; /* Slightly lighter background for the form */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.847);
+}
+
+.contact-image {
+    position: relative;
+    flex: 1;
+    max-width: 50%;
+}
+
+.contact-image img {
+    width: 100%;
+    height: 45rem;
+    object-fit: cover;
+}
+
+.contact-overlay {
+    position: absolute;
+    bottom: 10px; /* Positioning overlay at the bottom */
+    left: 10px; /* Positioning overlay to the left */
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 400px;
+}
+
+.contact-info {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    font-size: 1.5rem; /* Adjust icon size */
+}
+
+.contact-form-container {
+    flex: 1;
+    padding: 2rem;
+    text-align: center;
+}
+
+.contact-form-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #f39c12; /* Highlight color */
+}
+
+.contact-form-container p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #f39c12; /* Label color matching the highlight color */
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #79525256;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-group input::placeholder, .form-group textarea::placeholder {
+    color: #a4b771;
+}
+
+.submit-btn {
+    background-color: #f39c12; /* Highlight color for the button */
+    color: #fff;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #d87a0b; /* Darker orange on hover */
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-image {
+        max-width: 100%;
+    }
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+}
+
+
+/* Footer Styles */
+.footer {
+    background-image: linear-gradient(90deg, #11012d, #091353);
+    color: #fff;
+    padding: 1rem;
+}
+
+.footer-list-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    margin: 1rem 1rem 0 1rem;
+    border-radius: 50%;
+    background-color: #d87a0b;
+}
+
+.footer-links {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-menu {
+    padding: 0 5rem;
+}
+
+.footer-menu .footer-menu-list {
+    display: flex;
+    list-style: none;
+}
+
+/* utility classes */
+.greet-heading {
+    font-size: 1.3rem;
+    font-weight: lighter;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.my-heading {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.sub-heading {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #ff70c6;
+    padding: 10px;
+}
+
+.links:hover {
+    border-bottom: 4px solid #ffd500;
+}
+
+.links {
+    border-bottom: 2px solid transparent;
+    transition: all 0.25s;
+    padding: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.common-btn {
+    background-color: #ffff00;
+    color: #000000;
+    transition: all 0.25s;
+}
+
+.common-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #d2ff20;
+    outline: none;
+}
+
+.ghost-btn {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ccff00;
+    outline: none;
+    margin-left: 50px;
+}
+
+.ghost-btn:hover {
+    background-color: #eeff00;
+    color: #000000;
+    transition: all 0.25s;
+}
+
+.heading-span {
+    font-weight: bolder;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.small-para {
+    font-size: 14px;
+    color: #fff;
+}
+
+.white-text {
+    color: #fff;
+}
+
+.blue-text {
+    color: #000000;
+    font-weight: bolder;
+}
