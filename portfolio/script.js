@@ -60,11 +60,11 @@ function drawSChart() {
   // Set Data
   const data = google.visualization.arrayToDataTable([
     ['Skill', 'Value'],
-    ['HTML', 54.8],
-    ['CSS', 48.6],
-    ['Python', 44.4],
-    ['Prompt Engineering', 23.9],
-    ['JavaScript', 14.5]
+    ['Communication', 60.8],
+    ['Collaborative', 45.6],
+    ['Professionalism', 40.4],
+    ['problem Solving', 17.9],
+    ['Emotional Intelligence', 24.5]
   ]);
 
   // Set Options
@@ -89,3 +89,15 @@ function drawSChart() {
   const chart = new google.visualization.PieChart(document.getElementById('soft'));
   chart.draw(data, options);
 }
+
+const anchorLinks = document.querySelectorAll('a[href*="#"]');
+
+anchorLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    const offset = link.getAttribute('data-offset');
+    const target = document.querySelector(link.getAttribute('href'));
+    const top = target.offsetTop - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});

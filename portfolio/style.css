@@ -117,6 +117,7 @@ body {
     align-items: flex-end;
 }
 
+
 .clipart {
     flex: 1; /* Takes up space on the right */
     max-width: 100%;
@@ -124,6 +125,8 @@ body {
     object-fit: cover; /* Ensures image covers the available space while keeping its aspect ratio */
     margin-right: 6rem; /* Adjust right margin as needed */
     transform: scaleX(-1); 
+    border-radius: 24% 1% 24% 1%;
+    border-color: #ccff00;
 }
 
 /* About section styles */
@@ -199,7 +202,21 @@ body {
     background:#d87a0b;
     padding: 2rem;
 }
-
+.my-card:hover {
+    animation: gradient-animation 3s ease-in-out infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-image: linear-gradient(90deg, #ff1818, #ff006a);
+    }
+    50% {
+      background-image: linear-gradient(90deg, #08b160, #005f77);
+    }
+    100% {
+      background-image: linear-gradient(90deg, #1c27ff, #c20aff);
+    }
+  }
 .icon {
     height: 70px;
     width: 70px;
@@ -240,7 +257,7 @@ body {
 /* Contact section styles */
 
 .contact-section {
-    padding: 4rem 2rem;
+    padding: 0rem 2rem;
     background-color: transparent; /* Dark background for contrast */
     color: #fff;
     display: flex;
@@ -375,7 +392,6 @@ body {
 
 /* Footer Styles */
 .footer {
-    background-image: linear-gradient(90deg, #11012d, #091353);
     color: #fff;
     padding: 1rem;
 }
