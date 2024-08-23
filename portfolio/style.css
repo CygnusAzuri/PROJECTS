@@ -125,8 +125,8 @@ body {
     object-fit: cover; /* Ensures image covers the available space while keeping its aspect ratio */
     margin-right: 6rem; /* Adjust right margin as needed */
     transform: scaleX(-1); 
-    border-radius: 24% 1% 24% 1%;
-    border-color: #ccff00;
+    border-radius: 25% 3% 25% 0%;
+    border: 5px dashed #ccff00;
 }
 
 /* About section styles */
@@ -238,7 +238,7 @@ body {
     justify-content: space-between; /* Adjusts spacing between charts */
     align-items: center; /* Centers charts vertically */
     flex-wrap: wrap; /* Allows charts to wrap if necessary (optional) */
-    gap: 20px; /* Adjust the gap between charts as needed */
+    gap: 20px;
   }
   
   .chart {
@@ -258,7 +258,7 @@ body {
 
 .contact-section {
     padding: 0rem 2rem;
-    background-color: transparent; /* Dark background for contrast */
+    background-color: transparent; 
     color: #fff;
     display: flex;
 }
@@ -269,7 +269,7 @@ body {
     align-items: center;
     max-width: 100%;
     margin: 0 auto;
-    background-color: #81181822; /* Slightly lighter background for the form */
+    background-color: #81181822;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.847);
@@ -374,7 +374,7 @@ body {
 }
 
 .submit-btn:hover {
-    background-color: #d87a0b; /* Darker orange on hover */
+    background-color: #d84f0b; /* Darker orange on hover */
 }
 
 @media (max-width: 768px) {
